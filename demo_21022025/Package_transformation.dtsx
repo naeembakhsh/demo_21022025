@@ -1,0 +1,2245 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/24/2025 12:56:27 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-8D73F6I"
+  DTS:CreatorName="DESKTOP-8D73F6I\Naeem Bakhsh"
+  DTS:DTSID="{13A33DF8-EA15-44F6-8869-730560ADA7AD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="16393"
+  DTS:ObjectName="Package_transformation"
+  DTS:PackageType="5"
+  DTS:VersionBuild="26"
+  DTS:VersionGUID="{CDCC50A4-4489-44F9-8F8E-B54ABB7CFD5F}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naeem_db]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{473E82BE-032A-4BBD-A234-332B477393D7}"
+      DTS:ObjectName="DESKTOP-8D73F6I\SQLEXPRESS.naeem_db">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8D73F6I\SQLEXPRESS;Initial Catalog=naeem_db;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package_transformation-{473E82BE-032A-4BBD-A234-332B477393D7}DESKTOP-8D73F6I\SQLEXPRESS.naeem_db;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naukri_db]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{6ED1153A-88CD-4A3C-A962-89D21723EA60}"
+      DTS:ObjectName="DESKTOP-8D73F6I\SQLEXPRESS.naukri_db">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8D73F6I\SQLEXPRESS;Initial Catalog=naukri_db;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package_transformation-{6ED1153A-88CD-4A3C-A962-89D21723EA60}DESKTOP-8D73F6I\SQLEXPRESS.naukri_db;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.pizza]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D580FC8B-8287-4149-AFC4-B777E646641A}"
+      DTS:ObjectName="DESKTOP-8D73F6I\SQLEXPRESS.pizza">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-8D73F6I\SQLEXPRESS;Initial Catalog=pizza;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package_transformation-{D580FC8B-8287-4149-AFC4-B777E646641A}DESKTOP-8D73F6I\SQLEXPRESS.pizza;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\NaeemDB_to_Pizza"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{A0600DF0-96E1-44E4-A991-C7E240F815F4}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="NaeemDB_to_Pizza"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\NaeemDB_to_Pizza\copy item name column"
+              componentClassID="Microsoft.CopyMap"
+              contactInfo="Copy Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Copies input columns to new columns in the transformation output. For example, create a copy of the 'address' column so that it can be cleaned by subsequent transformations and leave the original column in place for auditing."
+              name="copy item name column">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\copy item name column.Inputs[Copy Column Input]"
+                  name="Copy Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\copy item name column.Inputs[Copy Column Input].Columns[Item name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item name"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output]"
+                  name="Copy Column Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\copy item name column.Inputs[Copy Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output].Columns[Item name2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output].Columns[Item name2]"
+                      name="Item name2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the column to copy."
+                          name="copyColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input].Columns[Receipt no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Receipt no"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input].Columns[Ordertype name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ordertype name"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input].Columns[Item name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item name"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Location"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Receipt no]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Receipt no]"
+                      name="Conv_Receipt no"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Ordertype name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Ordertype name]"
+                      name="Conv_Ordertype name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Item name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Item name]"
+                      name="Conv_Item name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]"
+                      name="Conv_Location"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Derived Column.Inputs[Derived Column Input].Columns[Conv_Location]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Location"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output].Columns[location_short]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output].Columns[location_short]"
+                      name="location_short"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEFT](#{Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]},3)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEFT(Conv_Location,3)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\Location short upper case"
+              componentClassID="Microsoft.CharacterMap"
+              contactInfo="Character Map;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Specifies the string operations to apply."
+              name="Location short upper case"
+              usesDispositions="true"
+              version="2">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\Location short upper case.Inputs[Character Map Input]"
+                  name="Character Map Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Location short upper case.Inputs[Character Map Input].Columns[location_short]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="location_short"
+                      errorOrTruncationOperation="Map Column"
+                      lineageId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output].Columns[location_short]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.UInt32"
+                          name="MapFlags"
+                          typeConverter="LCMappingType">512</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Output]"
+                  exclusionGroup="1"
+                  name="Character Map Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Location short upper case.Inputs[Character Map Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Character Map Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Location short upper case.Inputs[Character Map Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\Multicast"
+              componentClassID="Microsoft.Multicast"
+              contactInfo="Multicast;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Distributes every input row to every row in one or more outputs. For example, branch your data flow to make a copy of data so that some values can be masked before sharing with external partners."
+              name="Multicast">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\Multicast.Inputs[Multicast Input 1]"
+                  name="Multicast Input 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Multicast.Outputs[Multicast Output 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 1"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Multicast.Outputs[Multicast Output 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 3"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Multicast.Outputs[Multicast Output 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Multicast Output 2"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\Multicast.Inputs[Multicast Input 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesData_source]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\NaeemDB_to_Pizza\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naeem_db]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naeem_db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sale date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sale date]"
+                      length="10"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sale date]"
+                      name="Sale date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Receipt no]"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]"
+                      name="Receipt no"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ordertype name]"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]"
+                      name="Ordertype name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Item name]"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]"
+                      name="Item name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Amount]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sales Amount]"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Amount]"
+                      name="Sales Amount"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]"
+                      name="Location"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sale date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Sale date" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Receipt no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Receipt no" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Ordertype name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Ordertype name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Item name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Item name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sales Amount]"
+                      dataType="i4"
+                      name="Sales Amount" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Location" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sale date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sale date]"
+                      name="Sale date" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Receipt no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Receipt no]"
+                      name="Receipt no" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ordertype name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Ordertype name]"
+                      name="Ordertype name" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Item name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Item name]"
+                      name="Item name" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Quantity]"
+                      name="Quantity" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sales Amount]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Sales Amount]"
+                      name="Sales Amount" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Location]"
+                      name="Location" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\sales above 500"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="sales above 500"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input].Columns[Sales Amount]"
+                      cachedDataType="i4"
+                      cachedName="Sales Amount"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input].Columns[location_short]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="location_short"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Case 1]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 1"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]} &gt; 500</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">[Sales Amount] &gt; 500</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Case 2]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Case 2"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]} == "SAN"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">location_short == "SAN"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\Sort Location short asc"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort Location short asc"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Sale date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Sale date"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sale date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Receipt no]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Receipt no"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Ordertype name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Ordertype name"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Item name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item name"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Sales Amount]"
+                      cachedDataType="i4"
+                      cachedName="Sales Amount"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Amount]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Location]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Location"
+                      lineageId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Conv_Receipt no]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Receipt no"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Receipt no]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Conv_Ordertype name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Ordertype name"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Ordertype name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Conv_Item name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Item name"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Item name]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Conv_Location]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Location"
+                      lineageId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[location_short]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="location_short"
+                      lineageId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output].Columns[location_short]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input].Columns[Item name2]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Item name2"
+                      lineageId="Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output].Columns[Item name2]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sale date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sale date]"
+                      name="Sale date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sale date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Receipt no]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Receipt no]"
+                      name="Receipt no">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Receipt no]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Ordertype name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Ordertype name]"
+                      name="Ordertype name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Ordertype name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Item name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Item name]"
+                      name="Item name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Item name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Quantity]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Quantity]"
+                      name="Quantity">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Quantity]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]"
+                      name="Sales Amount">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sales Amount]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Location]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Location]"
+                      name="Location">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output].Columns[Location]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Receipt no]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Receipt no]"
+                      name="Conv_Receipt no">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Receipt no]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Ordertype name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Ordertype name]"
+                      name="Conv_Ordertype name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Ordertype name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Item name]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Item name]"
+                      name="Conv_Item name">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Item name]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Location]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Location]"
+                      name="Conv_Location">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output].Columns[Conv_Location]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]"
+                      dataType="wstr"
+                      length="3"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]"
+                      name="location_short"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output].Columns[location_short]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Item name2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Item name2]"
+                      name="Item name2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output].Columns[Item name2]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\target DB naukri com"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="target DB naukri com"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesData_target_multicast]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\NaeemDB_to_Pizza\target DB naukri com.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naukri_db]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.naukri_db]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Sale date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Sale date"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Sale date]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sale date]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Sales Amount]"
+                      cachedDataType="i4"
+                      cachedName="Sales Amount"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[location_short]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="location_short"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[location_short]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Conv_Receipt no]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Receipt no"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Receipt no]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Receipt no]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Conv_Ordertype name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Ordertype name"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Ordertype name]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Ordertype name]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Conv_Location]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Location"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Location]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].Columns[Conv_Item name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Item name"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Item name]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Item name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Sale date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Sale date" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Receipt no]"
+                      dataType="wstr"
+                      length="50"
+                      name="Receipt no" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Ordertype name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ordertype name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Item name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Item name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      dataType="i4"
+                      name="Sales Amount" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="50"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input].ExternalColumns[location_short]"
+                      dataType="wstr"
+                      length="5"
+                      name="location_short" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\target DB naukri com.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\target DB naukri com.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB naukri com.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\target DB naukri com.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\NaeemDB_to_Pizza\target DB pizza"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="target DB pizza"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SalesData_target]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\NaeemDB_to_Pizza\target DB pizza.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.pizza]"
+                  connectionManagerRefId="Package.ConnectionManagers[DESKTOP-8D73F6I\SQLEXPRESS.pizza]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Sale date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="Sale date"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Sale date]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sale date]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Quantity]"
+                      cachedDataType="i4"
+                      cachedName="Quantity"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Quantity]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Sales Amount]"
+                      cachedDataType="i4"
+                      cachedName="Sales Amount"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Sales Amount]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Conv_Receipt no]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Receipt no"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Receipt no]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Receipt no]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Conv_Ordertype name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Ordertype name"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Ordertype name]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Ordertype name]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Conv_Item name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Item name"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Item name]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Item name]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[Conv_Location]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Conv_Location"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[Conv_Location]" />
+                    <inputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].Columns[location_short]"
+                      cachedDataType="wstr"
+                      cachedLength="3"
+                      cachedName="location_short"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[location_short]"
+                      lineageId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output].Columns[location_short]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Sale date]"
+                      dataType="wstr"
+                      length="10"
+                      name="Sale date" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Receipt no]"
+                      dataType="wstr"
+                      length="50"
+                      name="Receipt no" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Ordertype name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Ordertype name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Item name]"
+                      dataType="wstr"
+                      length="50"
+                      name="Item name" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Quantity]"
+                      dataType="i4"
+                      name="Quantity" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Sales Amount]"
+                      dataType="i4"
+                      name="Sales Amount" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[Location]"
+                      dataType="wstr"
+                      length="50"
+                      name="Location" />
+                    <externalMetadataColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input].ExternalColumns[location_short]"
+                      dataType="wstr"
+                      length="5"
+                      name="location_short" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\NaeemDB_to_Pizza\target DB pizza.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\target DB pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\NaeemDB_to_Pizza\target DB pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\NaeemDB_to_Pizza\target DB pizza.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Case 1]"
+              endId="Package\NaeemDB_to_Pizza\target DB naukri com.Inputs[OLE DB Destination Input]"
+              name="Case 1"
+              startId="Package\NaeemDB_to_Pizza\sales above 500.Outputs[Case 1]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Character Map Output]"
+              endId="Package\NaeemDB_to_Pizza\Sort Location short asc.Inputs[Sort Input]"
+              name="Character Map Output"
+              startId="Package\NaeemDB_to_Pizza\Location short upper case.Outputs[Character Map Output]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Copy Column Output]"
+              endId="Package\NaeemDB_to_Pizza\Location short upper case.Inputs[Character Map Input]"
+              name="Copy Column Output"
+              startId="Package\NaeemDB_to_Pizza\copy item name column.Outputs[Copy Column Output]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Data Conversion Output]"
+              endId="Package\NaeemDB_to_Pizza\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\NaeemDB_to_Pizza\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Derived Column Output]"
+              endId="Package\NaeemDB_to_Pizza\copy item name column.Inputs[Copy Column Input]"
+              name="Derived Column Output"
+              startId="Package\NaeemDB_to_Pizza\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Multicast Output 1]"
+              endId="Package\NaeemDB_to_Pizza\target DB pizza.Inputs[OLE DB Destination Input]"
+              name="Multicast Output 1"
+              startId="Package\NaeemDB_to_Pizza\Multicast.Outputs[Multicast Output 1]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Multicast Output 3]"
+              endId="Package\NaeemDB_to_Pizza\sales above 500.Inputs[Conditional Split Input]"
+              name="Multicast Output 3"
+              startId="Package\NaeemDB_to_Pizza\Multicast.Outputs[Multicast Output 3]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[OLE DB Source Output]"
+              endId="Package\NaeemDB_to_Pizza\Data Conversion.Inputs[Data Conversion Input]"
+              name="OLE DB Source Output"
+              startId="Package\NaeemDB_to_Pizza\OLE DB Source.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\NaeemDB_to_Pizza.Paths[Sort Output]"
+              endId="Package\NaeemDB_to_Pizza\Multicast.Inputs[Multicast Input 1]"
+              name="Sort Output"
+              startId="Package\NaeemDB_to_Pizza\Sort Location short asc.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate data before load DB naukri"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{062c65b8-24cd-4ac8-a6e4-a4dde6c22f15}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate data before load DB naukri"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{6ED1153A-88CD-4A3C-A962-89D21723EA60}"
+          SQLTask:SqlStatementSource="truncate table SalesData_target_multicast" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\truncate data before load db pizza"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3ABF48BA-DA99-4F0C-9A4E-EBD2F14B0D94}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="truncate data before load db pizza"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D580FC8B-8287-4149-AFC4-B777E646641A}"
+          SQLTask:SqlStatementSource="truncate table SalesData_target" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{E800004C-3ADA-48C7-B0E3-C426345F6B7D}"
+      DTS:From="Package\truncate data before load db pizza"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\NaeemDB_to_Pizza" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD10E7A6-13F4-4DFD-AFBE-2A44E47A6FCE}"
+      DTS:From="Package\truncate data before load DB naukri"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\NaeemDB_to_Pizza" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="176,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza"
+          TopLeft="208.749990668148,170.36841918202" />
+        <NodeLayout
+          Size="248,42.6666666666667"
+          Id="Package\truncate data before load DB naukri"
+          TopLeft="319.374985722825,56.1403513880427" />
+        <NodeLayout
+          Size="240,42.6666666666667"
+          Id="Package\truncate data before load db pizza"
+          TopLeft="63.1249971780928,57.4736835794766" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="183.124997178093,100.140350246143">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="85.6249934900553,70.2280689358767"
+              Start="0,0"
+              End="85.6249934900553,62.7280689358767">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.7572301780888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.7572301780888"
+                    Point2="0,41.7572301780888"
+                    Point3="4,41.7572301780888" />
+                  <mssgle:LineSegment
+                    End="81.6249934900553,41.7572301780888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.6249934900553,41.7572301780888"
+                    Point2="85.6249934900553,41.7572301780888"
+                    Point3="85.6249934900553,45.7572301780888" />
+                  <mssgle:LineSegment
+                    End="85.6249934900553,62.7280689358767" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="443.374985722825,98.8070180547094">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-118.624995054677,71.5614011273105"
+              Start="0,0"
+              End="-118.624995054677,64.0614011273105">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5500222919144" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.5500222919144"
+                    Point2="0,42.5500222919144"
+                    Point3="-4,42.5500222919144" />
+                  <mssgle:LineSegment
+                    End="-114.624995054677,42.5500222919144" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-114.624995054677,42.5500222919144"
+                    Point2="-118.624995054677,42.5500222919144"
+                    Point3="-118.624995054677,46.5500222919144" />
+                  <mssgle:LineSegment
+                    End="-118.624995054677,64.0614011273105" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\NaeemDB_to_Pizza">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\Multicast"
+          TopLeft="254.999988600612,267.280698922175" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\Derived Column"
+          TopLeft="478.124978626148,20.5614035538469" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\OLE DB Source"
+          TopLeft="59.3749973457308,17.7894734888856" />
+        <NodeLayout
+          Size="180,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\target DB naukri com"
+          TopLeft="256.874988516793,394.929820452068" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\Data Conversion"
+          TopLeft="282.499987371266,23.9473681581152" />
+        <NodeLayout
+          Size="188,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\Sort Location short asc"
+          TopLeft="145.624993490055,199.789471490562" />
+        <NodeLayout
+          Size="202.666666666667,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\Location short upper case"
+          TopLeft="108.749995138496,121.157894526492" />
+        <NodeLayout
+          Size="152,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\target DB pizza"
+          TopLeft="66.8749970104546,346.89473303327" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\sales above 500"
+          TopLeft="414.999981448055,306.052628987136" />
+        <NodeLayout
+          Size="192,42.6666666666667"
+          Id="Package\NaeemDB_to_Pizza\copy item name column"
+          TopLeft="428.124980861322,110.070174837597" />
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Sort Output]"
+          TopLeft="239.624993490055,242.456138157228">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76.0416617772233,24.8245607649466"
+              Start="0,0"
+              End="76.0416617772233,17.3245607649466">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,8.41228038247331" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,8.41228038247331"
+                    Point2="0,12.4122803824733"
+                    Point3="4,12.4122803824733" />
+                  <mssgle:LineSegment
+                    End="72.0416617772233,12.4122803824733" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72.0416617772233,12.4122803824733"
+                    Point2="76.0416617772233,12.4122803824733"
+                    Point3="76.0416617772233,16.4122803824733" />
+                  <mssgle:LineSegment
+                    End="76.0416617772233,17.3245607649466" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[OLE DB Source Output]"
+          TopLeft="214.041664012397,42.2017541568338">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.458323358869,0"
+              Start="0,0"
+              End="60.958323358869,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="60.958323358869,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Multicast Output 3]"
+          TopLeft="376.333321933945,288.614032255508">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.6666595141097,38.7719300649612"
+              Start="0,0"
+              End="31.1666595141097,38.7719300649612">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.3333297570548,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.3333297570548,0"
+                    Point2="19.3333297570548,0"
+                    Point3="19.3333297570548,4" />
+                  <mssgle:LineSegment
+                    End="19.3333297570548,34.7719300649612" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.3333297570548,34.7719300649612"
+                    Point2="19.3333297570548,38.7719300649612"
+                    Point3="23.3333297570548,38.7719300649612" />
+                  <mssgle:LineSegment
+                    End="31.1666595141097,38.7719300649612" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Multicast Output 1]"
+          TopLeft="296.77776637839,309.947365588842">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-153.902769367935,36.947367444428"
+              Start="0,0"
+              End="-153.902769367935,29.447367444428">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.0674730575975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.0674730575975"
+                    Point2="0,15.0674730575975"
+                    Point3="-4,15.0674730575975" />
+                  <mssgle:LineSegment
+                    End="-149.902769367935,15.0674730575975" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-149.902769367935,15.0674730575975"
+                    Point2="-153.902769367935,15.0674730575975"
+                    Point3="-153.902769367935,19.0674730575975" />
+                  <mssgle:LineSegment
+                    End="-153.902769367935,29.447367444428" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Derived Column Output]"
+          TopLeft="556.124978626148,63.2280702205135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.999997764826,46.8421046170833"
+              Start="0,0"
+              End="-31.999997764826,39.3421046170833">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.4210523085416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.4210523085416"
+                    Point2="0,23.4210523085416"
+                    Point3="-4,23.4210523085416" />
+                  <mssgle:LineSegment
+                    End="-27.999997764826,23.4210523085416" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.999997764826,23.4210523085416"
+                    Point2="-31.999997764826,23.4210523085416"
+                    Point3="-31.999997764826,27.4210523085416" />
+                  <mssgle:LineSegment
+                    End="-31.999997764826,39.3421046170833" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-23.999998882413,28.4210523085416,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Data Conversion Output]"
+          TopLeft="441.166654037933,43.5877191893144">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.9583245882145,0"
+              Start="0,0"
+              End="29.4583245882145,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.4583245882145,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Copy Column Output]"
+          TopLeft="428.124980861322,131.40350817093">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-116.708319056159,11.0877196888955"
+              Start="0,0"
+              End="-109.208319056159,11.0877196888955">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-54.3541595280793,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-54.3541595280793,0"
+                    Point2="-58.3541595280793,0"
+                    Point3="-58.3541595280793,4" />
+                  <mssgle:LineSegment
+                    End="-58.3541595280793,7.08771968889548" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.3541595280793,7.08771968889548"
+                    Point2="-58.3541595280793,11.0877196888955"
+                    Point3="-62.3541595280793,11.0877196888955" />
+                  <mssgle:LineSegment
+                    End="-109.208319056159,11.0877196888955" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Character Map Output]"
+          TopLeft="210.08332847183,163.824561193159">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="29.5416650182258,35.9649102974027"
+              Start="0,0"
+              End="29.5416650182258,28.4649102974027">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9824551487013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.9824551487013"
+                    Point2="0,17.9824551487013"
+                    Point3="4,17.9824551487013" />
+                  <mssgle:LineSegment
+                    End="25.5416650182258,17.9824551487013" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.5416650182258,17.9824551487013"
+                    Point2="29.5416650182258,17.9824551487013"
+                    Point3="29.5416650182258,21.9824551487013" />
+                  <mssgle:LineSegment
+                    End="29.5416650182258,28.4649102974027" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\NaeemDB_to_Pizza.Paths[Case 1]"
+          TopLeft="493.666648114722,348.719295653803">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146.791659597929,46.2105247982656"
+              Start="0,0"
+              End="-146.791659597929,38.7105247982656">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.1052623991328" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.1052623991328"
+                    Point2="0,23.1052623991328"
+                    Point3="-4,23.1052623991328" />
+                  <mssgle:LineSegment
+                    End="-142.791659597929,23.1052623991328" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142.791659597929,23.1052623991328"
+                    Point2="-146.791659597929,23.1052623991328"
+                    Point3="-146.791659597929,27.1052623991328" />
+                  <mssgle:LineSegment
+                    End="-146.791659597929,38.7105247982656" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-88.6139157364645,28.1052623991328,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\NaeemDB_to_Pizza\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NaeemDB_to_Pizza\target DB naukri com">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\NaeemDB_to_Pizza\target DB pizza">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
